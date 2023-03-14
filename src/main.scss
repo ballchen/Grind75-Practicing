@@ -1,8 +1,12 @@
+$primary: #6610f2;
+$danger: #dc3545;
+
 @import "~bootstrap/scss/bootstrap.scss";
 @import "~bootstrap/scss/_variables.scss";
 
-$primary: $indigo-500;
+
+
 
 .question-section {
-  text-align: left;
+  text-align: left; 
 }
