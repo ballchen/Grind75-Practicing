@@ -77,46 +77,43 @@ function random({easy=0, medium=2, hard=0}) {
 </script>
 
 <template>
-  <div class="container">
-    <div class="card border-0 shadow-sm">
+  <div class="container-fluid container-md">
+    <div class="card border-0 shadow-sm mt-2 mt-md-5 ">
       <h2>Random Grind 75</h2>
-      <div class="d-flex flex-wrap mt-2">
-        <div class="px-2">
-          <div>
-            <h4>Easy</h4>
+      <div class="d-flex">
+        <div class="d-flex flex-wrap mt-2 justify-content-center">
+          <div class="px-2">
+            <div>
+              <h4>Easy</h4>
+            </div>
+            <div>
+              <input type="number" v-model="select.easy" />
+            </div>
           </div>
-          <div>
-            <input type="number" v-model="select.easy" />
+          <div class="px-2">
+            <div>
+              <h4>Medium</h4>
+            </div>
+            <div>
+              <input type="number" v-model="select.medium" />
+            </div>
           </div>
-        </div>
-        <div class="px-2">
-          <div>
-            <h4>Medium</h4>
-          </div>
-          <div>
-            <input type="number" v-model="select.medium" />
-          </div>
-        </div>
-        <div class="px-2">
-          <div>
-            <h4>Hard</h4>
-          </div>
-          <div>
-            <input type="number" v-model="select.hard" />
+          <div class="px-2">
+            <div>
+              <h4>Hard</h4>
+            </div>
+            <div>
+              <input type="number" v-model="select.hard" />
+            </div>
           </div>
         </div>
       </div>
       
-      <div class="mt-4 d-flex justify-content-center">
-        <div class="px-2" v-if="!counting">
-          <button type="button" class="btn btn-primary" @click="random(select)">Generate Questions</button>
-        </div>
-        <div class="px-2" v-if="questions.length && seconds > 0 && !counting" type="button">
-          <button class="btn btn-warning" @click="startTimer()">Start!</button>
-        </div>
-        <div class="px-2" v-if="counting">
-          <button type="button" class="btn btn-danger" @click="endTimer()">Stop!</button>
-        </div>
+      
+      <div class="mt-4 d-grid gap-2">
+        <button type="button" v-if="!counting" class="btn btn-primary" @click="random(select)">Generate Questions</button>
+        <button v-if="questions.length && seconds > 0 && !counting" type="button" class="btn btn-warning" @click="startTimer()">Start!</button>
+        <button v-if="counting" type="button" class="btn btn-danger" @click="endTimer()">Stop!</button>
       </div>
 
       <div v-if="questions.length">
